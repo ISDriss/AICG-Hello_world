@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MNIST Canvas Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Title</h1>
+  <p>Instructions</p>
+
+  <select>
+    <option>Model Selection</option>
+  </select>
+
+  <div class="container">
+    <div class="buttons">
+      <button id="penBtn">Pen</button>
+      <button id="eraserBtn">Eraser</button>
+      <button id="clearBtn">Clear</button>
+    </div>
+
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <div class="predictions">
+      <div class="pred">
+        <p>90%</p>
+        <p>0</p>
+        <p>1</p>
+      </div>
+      <div class="pred">
+        <p>7%</p>
+        <p>0</p>
+        <p>9</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
