@@ -53,7 +53,7 @@ let modelSession = null;
 
 // Dictionary: display name → model path
 const models = {
-  "Model NN1": "model_nn1.onnx",
+  "Model NN1": "single_mnist_model_nn1.onnx",
 };
 
 // Function to populate dropdown
