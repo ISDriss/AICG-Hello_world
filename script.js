@@ -4,7 +4,7 @@ let drawing = false;
 let mode = 'pen';
 
 // Initialize black background
-ctx.fillStyle = '#000';
+ctx.fillStyle = '#fff';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.lineWidth = 15;
 ctx.lineCap = 'round';
@@ -27,7 +27,7 @@ function draw(e) {
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
 
-  ctx.strokeStyle = mode === 'pen' ? '#fff' : '#000';
+  ctx.strokeStyle = mode === 'pen' ? '#000' : '#fff';
   ctx.lineTo(x, y);
   ctx.stroke();
   ctx.beginPath();

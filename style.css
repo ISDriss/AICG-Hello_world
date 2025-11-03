@@ -1,6 +1,11 @@
 body {
+  /* Very important background */
   background-color: #000;
-  color: #ff8800;
+  background-image: url("very_important_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Text styling */
+  color: #03009b;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
@@ -22,15 +27,15 @@ p {
 
 select {
   background: transparent;
-  color: #ff8800;
-  border: 1px solid #ff8800;
+  color: #03009b;
+  border: 1px solid #03009b;
   border-radius: 6px;
   padding: 4px 10px;
   margin-bottom: 20px;
 }
 
 .container {
-  border: 1px solid #ff8800;
+  border: 1px solid #03009b;
   border-radius: 10px;
   padding: 16px;
   display: flex;
@@ -46,22 +51,22 @@ select {
 
 button {
   background: transparent;
-  border: 1px solid #ff8800;
-  color: #ff8800;
+  border: 1px solid #03009b;
+  color: #03009b;
   border-radius: 6px;
   padding: 5px 12px;
   cursor: pointer;
 }
 
 button:hover {
-  background: #ff8800;
-  color: #000;
+  background: #03009b;
+  color: #fff;
 }
 
 canvas {
-  border: 1px solid #ff8800;
+  border: 1px solid #03009b;
   border-radius: 6px;
-  background: #000;
+  background: #fff;
   cursor: crosshair;
 }
 
