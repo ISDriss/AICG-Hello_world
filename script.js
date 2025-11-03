@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 let drawing = false;
 let mode = 'pen';
 
-// Initialize black background
+// Initialize white background
 ctx.fillStyle = '#fff';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.lineWidth = 15;
