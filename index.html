@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MNIST Canvas Demo</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
 </head>
 <body>
   <h1>MNIST Canva</h1>
   <p>Choisi un modèle, dessine un chiffre et<br>BOOM, sa fait des chocapics</p>
 
   <select class = "model-select" id="modelSelect">
+  <!--Filled with JS-->
     <option>No Model</option>
   </select>
 
@@ -24,37 +24,10 @@
 
     <canvas id="canvas" width="200" height="200"></canvas>
 
-    <div class="predictions">
-      <div class="pred0">
-        <p>0</p>
-      </div>
-      <div class="pred1">
-        <p>1</p>
-      </div>
-      <div class="pred2">
-        <p>2</p>
-      </div>
-      <div class="pred3">
-        <p>3</p>
-      </div>
-      <div class="pred4">
-        <p>4</p>
-      </div>
-      <div class="pred5">
-        <p>5</p>
-      </div>
-      <div class="pred6">
-        <p>6</p>
-      </div>
-      <div class="pred7">
-        <p>7</p>
-      </div>
-      <div class="pred8">
-        <p>8</p>
-      </div>
-      <div class="pred9">
-        <p>9</p>
-      </div>
+    <div class="predictions-grid">
+      <!-- Filled with JS-->
+    </div>
+
     </div>
   </div>
 
