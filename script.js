@@ -37,7 +37,7 @@ function draw(e) {
 
 document.getElementById('clearBtn').addEventListener('click', () => {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  displayPredictions(new Array(10).fill(0));
+  displayPredictions(new Array(10).fill(0), true);
 });
 
 document.getElementById('penBtn').addEventListener('click', () => (mode = 'pen'));
@@ -159,13 +159,12 @@ for (let i = 0; i < 10; i++) {
   predGrid.appendChild(col);
 }
 
-function displayPredictions(probs) {
+function displayPredictions(probs, clear = false) {
   probs.forEach((p, i) => {
     const bar = document.getElementById(`bar${i}`);
-    const label = document.getElementById(`label${i}`);
-    console.log(bar, label);
     bar.style.height = `${p * 100}%`;
     bar.style.backgroundColor = p === Math.max(...probs) ? '#ff0077' : '#03009b';
+    bar.style.opacity = clear ? '0' : '1.0';
   });
 }
 
