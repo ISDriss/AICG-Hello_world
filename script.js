@@ -111,10 +111,12 @@ populateModelSelect(models);
 async function loadSelectedModel(event) {
   const modelPath = event.target.value;
   const modelName = modelPath.split("/").pop().split(".")[0];
+  statusText.textContent = `status: loading model...`;
   const netModule = await import(modelPath);
   const device = await navigator.gpu.requestAdapter().then(a => a.requestDevice());
   net = await netModule.default.load(device, `./models/${modelName}/${modelName}.webgpu.safetensors`);
   console.log("✅ Model ready:", modelName);
+  statusText.textContent = `status: model loaded`;
 }
 document.getElementById("modelSelect").addEventListener("change", loadSelectedModel);
 
