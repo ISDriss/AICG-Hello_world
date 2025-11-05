@@ -24,7 +24,7 @@ The app runs **entirely client-side**, using `.safetensors` weights exported fro
 
 ---
 
-## 🧩 Model Summary
+## Model Summary
 
 | Model | Architecture | Final Test Accuracy |
 | :---- | :------------ | :----------------: |
@@ -32,8 +32,11 @@ The app runs **entirely client-side**, using `.safetensors` weights exported fro
 | **MLP v3** | 784 → 512 → 512 → 512 → 10 (SilU, RelU, SilU) | 92.10% |
 | **MLP v8** | 784 → 512 → 512 → 512 → 10 (SilU, RelU, SilU) | 95.55% |
 | **CNN** | Conv2d(1,32,5) → Conv2d(32,64,3) → Linear(576,10) | 97.58% |
+| **CNN v2** | Conv2d(1,32,5) → Conv2d(32,64,3) → Linear(576,10) | 98.20% |
 
 > Models were trained in TinyGrad with JIT acceleration and data augmentation (rotation, scale, translation).
+
+!!WARNING: CNN model implementation seems broken
 
 ---
 
