@@ -1,6 +1,4 @@
-* **Documentation:** Create a markdown file named **`HYPERPARAMETERS.md`**. Log the configurations you tried (e.g., Learning Rate, batch size `BS`, number of layers, optimizer, activation function, ...etc) and the resulting test accuracy.
-* **Experimentation:** Test at least **eight** distinct configurations for *each model* (bonus if you script this exploration).
-* **Accuracy Target:** Aim for the highest possible accuracy (Target: **$\ge 95\%$** for MLP; **$\ge 98\%$** for CNN).
+# Hyperparameters exploration log
 
 # MLP
 
