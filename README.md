@@ -28,9 +28,8 @@ The app runs **entirely client-side**, using `.safetensors` weights exported fro
 
 | Model | Architecture | Final Test Accuracy |
 | :---- | :------------ | :----------------: |
-| **MLP** | 784 → 512 → 512 → 10 (SiLU activations) | ~ |
-| **NN1** | 784 → 512 → 512 → 10 (ReLU activations) | bad |
-| **CNN** | Conv2d(1,32,5) → Conv2d(32,64,3) → Linear(576,10) | ~ |
+| **MLP** | 784 → 512 → 512 → 10 (SiLU activations) | 87.02% |
+| **CNN** | Conv2d(1,32,5) → Conv2d(32,64,3) → Linear(576,10) | 97.58% |
 
 > Models were trained in TinyGrad with JIT acceleration and data augmentation (rotation, scale, translation).
 

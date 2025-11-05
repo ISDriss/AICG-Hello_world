@@ -54,8 +54,9 @@ let modelSession = null;
 // Dictionary: display name → model path
 let net = null;
 const models = {
-  "NN1": "./nn1/nn1.js",
-  "MLP": "./mnist_mlp/mnist_mlp.js",
+  "MLP": "./models/mnist_mlp/mnist_mlp.js",
+  "MLP v3": "./models/mnist_mlp_v3/mnist_mlp_v3.js",
+  "MLP v8": "./models/mnist_mlp_v8/mnist_mlp_v8.js",
   "ConvNet": "./mnist_convnet/mnist_convnet.js"
 };
 
@@ -78,7 +79,7 @@ async function loadSelectedModel(event) {
   const modelName = modelPath.split("/").pop().split(".")[0];
   const netModule = await import(modelPath);
   const device = await navigator.gpu.requestAdapter().then(a => a.requestDevice());
-  net = await netModule.default.load(device, `./${modelName}/${modelName}.webgpu.safetensors`);
+  net = await netModule.default.load(device, `./models/${modelName}/${modelName}.webgpu.safetensors`);
   console.log("✅ Model ready:", modelName);
 }
 document.getElementById("modelSelect").addEventListener("change", loadSelectedModel);
@@ -86,7 +87,6 @@ document.getElementById("modelSelect").addEventListener("change", loadSelectedMo
 //#endregion
 
 //#region  image processing and prediction
-
 function preprocess_image(canvas) {
   // Create an offscreen 28x28 canvas
   const smallCanvas = document.createElement("canvas");

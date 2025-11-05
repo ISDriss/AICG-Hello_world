@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "dawn",
+    "matplotlib",
     "numpy>=2.3.4",
     "onnx>=1.19.1",
     "onnxscript>=0.5.6",
