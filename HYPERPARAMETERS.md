@@ -280,8 +280,93 @@ Looking back, the Biggest improvement in accurracy has been seen with the increa
 | **Steps** | 70 |
 | **Patience** | 50 |
 | **Optimizer** | Muon |
-| **Angle (°)** | ±15 |
-| **Scale** | ±0.1 |
-| **Shift (X,Y)** | ±0.1 |
+| === | === |
+| **Angle** | 15 |
+| **Scale** | 0.1 |
+| **Shift** | 0.1 |
+| **Sampling** | nearest |
 
 ### Test Accuracy : 97.58%
+
+___
+The accuracy of the default parameters is already pretty close to the target goal of 98+%
+applying a similar logic as the MLP attempts,
+We reduce the learning rate, use smaller batch size, increase the patience  
+and use more training steps
+
+## Attempt 2: More training
+
+### Model
+| Type | Size / Filters | Activation / Function |
+| :--- | :--- | :--- |
+| **Conv2d** | 1 → 32, kernel=5 | SiLU |
+| **Conv2d** | 32 → 32, kernel=5 | SiLU |
+| **BatchNorm2d** | 32 | Normalize + stabilize training |
+| **MaxPool2d** | 2×2 | Downsample |
+| **Conv2d** | 32 → 64, kernel=3 | SiLU |
+| **Conv2d** | 64 → 64, kernel=3 | SiLU |
+| **BatchNorm2d** | 64 | Normalize |
+| **MaxPool2d** | 2×2 | Downsample |
+| **Flatten** | 64×3×3 = 576 → 576 | Reshape to 1D |
+| **Linear** | 576 → 10 | Output |
+
+---
+
+### Training
+| Parameter | Value |
+| :--- | :--- |
+| **Batch Size** | 256 |
+| **Learning Rate** | 0.01 |
+| **Learning Rate Decay** | 0.9 |
+| **Steps** | 100 |
+| **Patience** | 80 |
+| **Optimizer** | Muon |
+| === | === |
+| **Angle** | 15 |
+| **Scale** | 0.1 |
+| **Shift** | 0.1 |
+| **Sampling** | nearest |
+
+### Test Accuracy : 98.20%
+
+___
+The target goal is achieved,
+Applying the changes made on MLP attempts regarding training data 
+
+## Attempt 2: vary training data
+
+### Model
+| Type | Size / Filters | Activation / Function |
+| :--- | :--- | :--- |
+| **Conv2d** | 1 → 32, kernel=5 | SiLU |
+| **Conv2d** | 32 → 32, kernel=5 | SiLU |
+| **BatchNorm2d** | 32 | Normalize + stabilize training |
+| **MaxPool2d** | 2×2 | Downsample |
+| **Conv2d** | 32 → 64, kernel=3 | SiLU |
+| **Conv2d** | 64 → 64, kernel=3 | SiLU |
+| **BatchNorm2d** | 64 | Normalize |
+| **MaxPool2d** | 2×2 | Downsample |
+| **Flatten** | 64×3×3 = 576 → 576 | Reshape to 1D |
+| **Linear** | 576 → 10 | Output |
+
+---
+
+### Training
+| Parameter | Value |
+| :--- | :--- |
+| **Batch Size** | 256 |
+| **Learning Rate** | 0.01 |
+| **Learning Rate Decay** | 0.9 |
+| **Steps** | 100 |
+| **Patience** | 80 |
+| **Optimizer** | Muon |
+| === | === |
+| **Angle** | 25 |
+| **Scale** | 0.01 |
+| **Shift** | 0.01 |
+| **Sampling** | bilinear |
+
+### Test Accuracy : 97.05%
+
+___
+surprisingly the model lost accuracy with the last changes

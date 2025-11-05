@@ -80,19 +80,19 @@ class Model:
   def __call__(self, x:Tensor) -> Tensor: return x.sequential(self.layers)
 
 if __name__ == "__main__":
-  B = int(getenv("BATCH", 512))
-  LR = float(getenv("LR", 0.02))
+  B = int(getenv("BATCH", 256))
+  LR = float(getenv("LR", 0.01))
   LR_DECAY = float(getenv("LR_DECAY", 0.9))
-  PATIENCE = float(getenv("PATIENCE", 50))
+  PATIENCE = float(getenv("PATIENCE", 80))
 
-  ANGLE = float(getenv("ANGLE", 15))
-  SCALE = float(getenv("SCALE", 0.1))
-  SHIFT = float(getenv("SHIFT", 0.1))
-  SAMPLING = SamplingMod(getenv("SAMPLING", SamplingMod.NEAREST.value))
+  ANGLE = float(getenv("ANGLE", 25))
+  SCALE = float(getenv("SCALE", 0.01))
+  SHIFT = float(getenv("SHIFT", 0.01))
+  SAMPLING = SamplingMod(getenv("SAMPLING", SamplingMod.BILINEAR.value))
 
-  version = "v1"
-  model_name = Path(__file__).name.split('.')[0] + f"{'_',version}"
-  dir_name = Path(__file__).parent / model_name
+  version = "v3"
+  model_name = Path(__file__).name.split('.')[0] + f"_{version}"
+  dir_name = Path(__file__).parent / "models" /model_name
   dir_name.mkdir(exist_ok=True)
 
   X_train, Y_train, X_test, Y_test = mnist()
@@ -117,7 +117,7 @@ if __name__ == "__main__":
   def get_test_acc() -> Tensor: return (model(normalize(X_test)).argmax(axis=1) == Y_test).mean() * 100
 
   test_acc, best_acc, best_since = float('nan'), 0, 0
-  for i in (t:=trange(getenv("STEPS", 70))):
+  for i in (t:=trange(getenv("STEPS", 100))):
     loss = train_step()
 
     if (i % 10 == 9) and (test_acc := get_test_acc().item()) > best_acc:

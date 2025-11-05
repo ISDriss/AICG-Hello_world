@@ -91,7 +91,8 @@ const models = {
   "MLP": "./models/mnist_mlp/mnist_mlp.js",
   "MLP v3": "./models/mnist_mlp_v3/mnist_mlp_v3.js",
   "MLP v8": "./models/mnist_mlp_v8/mnist_mlp_v8.js",
-  "ConvNet": "./mnist_convnet/mnist_convnet.js"
+  "ConvNet": "./models/mnist_convnet/mnist_convnet.js",
+  "ConvNet v2": "./models/mnist_convnet_v2/mnist_convnet_v2.js"
 };
 
 // Function to populate dropdown
