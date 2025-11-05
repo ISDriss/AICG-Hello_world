@@ -36,7 +36,11 @@ The app runs **entirely client-side**, using `.safetensors` weights exported fro
 
 > Models were trained in TinyGrad with JIT acceleration and data augmentation (rotation, scale, translation).
 
-!!WARNING: CNN model implementation seems broken
+Exploration of the hyperparameters can be found at [**HYPERPARAMETERS**](HYPERPARAMETERS.md)
+
+## Known Issues
+- CNN model implementation is broken (or maybe, the model is badly exported)
+- The probability barplot does not appear on mobile
 
 ---
 
