@@ -4,6 +4,10 @@ body {
   background-image: url("very_important_background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-position-x: center;
+  background-position-y: center;
   /* Text styling */
   color: #03009b;
   font-family: sans-serif;
@@ -14,6 +18,29 @@ body {
   height: 100vh;
   margin: 0;
 }
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll; /* fixes Safari mobile stretch bug */
+  }
+  
+  .container {
+    width: 90%;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  button {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+}
+
 
 h1 {
   margin: 0;

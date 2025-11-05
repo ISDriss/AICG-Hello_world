@@ -22,6 +22,40 @@ canvas.addEventListener('mouseup', () => {
 
 canvas.addEventListener('mousemove', draw);
 
+// Touch support for mobile
+canvas.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  const touch = e.touches[0];
+  drawing = true;
+  drawTouch(touch);
+});
+
+canvas.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  if (!drawing) return;
+  const touch = e.touches[0];
+  drawTouch(touch);
+});
+
+canvas.addEventListener('touchend', (e) => {
+  e.preventDefault();
+  drawing = false;
+  ctx.beginPath();
+});
+
+// helper to translate touch events to draw coordinates
+function drawTouch(touch) {
+  const rect = canvas.getBoundingClientRect();
+  const x = touch.clientX - rect.left;
+  const y = touch.clientY - rect.top;
+
+  ctx.strokeStyle = mode === 'pen' ? '#000' : '#fff';
+  ctx.lineTo(x, y);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+}
+
 function draw(e) {
   if (!drawing) return;
   const rect = canvas.getBoundingClientRect();
